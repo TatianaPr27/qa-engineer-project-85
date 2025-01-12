@@ -1,0 +1,164 @@
+- summary: |
+    Проверка входа пользователя с несуществующими email и паролем
+  requirement: |
+    При неправильном email или пароле пользователь должен получить сообщение об ошибке
+  prerequisites:
+    Открыта страница входа (Sing in)
+  test-data: |
+    Email = hexlet@ghrt.com Пароль = 123jkl
+  steps:
+    - Вводим email
+    - Вводим пароль
+    - Нажимаем кнопку “Submit”
+  expected-result: |
+    Пользователь должен получить сообщение об ошибке
+
+- summary: |
+    Проверка входа пользователя с существующими email и паролем
+  requirement: |
+    При правильном email и пароле пользователь должен успешно войти в систему 
+  prerequisites:
+    Открыта страница входа (Sing in)
+  test-data: |
+    Email = GregOtto@mail.ru Пароль = ghbdtn321
+  steps:
+    - Вводим email
+    - Вводим пароль
+    - Нажимаем кнопку “Submit”
+  expected-result: |
+    Пользователь должен войти в систему
+
+
+- summary: |
+    Проверка входа в систему с помощью аккаунта в Github
+  requirement: |
+    При нажатии кнопки “Sing in with Github” успешно входит в систему
+  prerequisites:
+    Открыта страница входа (Sing in)
+  test-data: |
+    no-date
+  steps:
+    - Нажимаем кнопку “Sing in with Github”
+  expected-result: |
+    Пользователь успешно входит в систему
+
+- summary: |
+    Проверка пробной версии без регистрации
+  requirement: |
+    При нажатии кнопки “TRY SIMPLE BATTLE” включается пробная версия приложения 
+  prerequisites:
+    Открыта главная страница проекта https://codebattle.hexlet.io/
+  test-data: |
+    no-date
+  steps:
+    - Нажимаем кнопку “TRY SIMPLE BATTLE”
+  expected-result: |
+    Пользователь успешно переходит на пробную версию приложения
+
+- summary: |
+    Проверка возможности увидеть введённый пароль в поле ввода пароля
+  requirement: |
+    При создании игры появляется окно для создания игры
+  prerequisites:
+    Открыта страница проекта https://codebattle.hexlet.io/
+  test-data: |
+    no-date
+  steps:
+    - Открыть проект https://codebattle.hexlet.io/
+    - Нажать на кнопку Sing up
+    - Заполнить поле Password
+    - Найти и кликнуть на кнопку, которая должна показывать введенный пароль
+    - Кликнуть на любую область сайта
+  expected-result: |
+    Иконка просмотра пароля должна появляться при первом вводе пароля и оставаться доступной для повторного нажатия
+
+- summary: |
+    Проверка создания игры в проекте codebattle с ботом
+  requirement: |
+    При нажатии кнопки “Create a game” создается игра
+  prerequisites:
+    Открыта страница пользователя проекта https://codebattle.hexlet.io/#lobby
+  test-data: |
+    no-date
+  steps:
+    - Нажимаем кнопку “Create a game”
+    - Выбираем Level, Game type – With a bot, Time control, Choose task by name or tags
+    - Нажимаем кнопку “Create battle”
+  expected-result: |
+    Открывается игра с ботом
+
+- summary: |
+    Проверка создания игры в проекте codebattle с другом 
+  requirement: |
+    При нажатии кнопки “Create a game” создается игра
+  prerequisites:
+    Открыта страница пользователя проекта https://codebattle.hexlet.io/#lobby
+  test-data: |
+    no-date
+  steps:
+    - Нажимаем кнопку “Create a game”
+    - Выбираем Level, Game type – With a friend, Time control, Choose opponent, Choose task by name or tags
+    - Нажимаем кнопку “Create battle”
+  expected-result: |
+    Открывается игра с другом
+
+- summary: |
+    Проверка создания игры в проекте codebattle с другим пользователем
+  requirement: |
+    При нажатии кнопки “Create a game” создается игра
+  prerequisites:
+    Открыта страница пользователя проекта https://codebattle.hexlet.io/#lobby
+  test-data: |
+    no-date
+  steps:
+    - Нажимаем кнопку “Create a game”
+    - Выбираем Level, Game type – With other user, Time control, Choose task by name or tags
+    - Нажимаем кнопку “Create battle”
+  expected-result: |
+    Открывается игра с другим пользователем
+
+- summary: |
+    Проверка всплывающего окна для создания турнира в проекте codebattle 
+  requirement: |
+    При нажатии кнопки “Tournaments” всплывает окно по созданию турнира
+  prerequisites:
+    Открыта страница пользователя проекта https://codebattle.hexlet.io/#lobby
+  test-data: |
+    no-date
+  steps:
+    - Нажимаем кнопку “Tournaments”
+  expected-result: |
+    Открывается окно для создания турнира
+
+- summary: |
+    Проверка создания турнира в проекте codebattle
+  requirement: |
+    При нажатии иконки “Tournaments” создается турнир
+  prerequisites:
+    Открыта страница пользователя проекта https://codebattle.hexlet.io/#lobby
+  test-data: |
+    no-date
+  steps:
+    - Нажимаем иконку “Tournaments”
+    - Пролистываем список активных турниров
+    - Нажимаем кнопку “Tournaments Info”
+    - Пролистываем список турниров
+    - Выбираем данные для турнира
+    - Нажимаем “Create”
+  expected-result: |
+    Создался турнир
+
+- summary: |
+    Проверка отмены пригласительного для друга
+  requirement: |
+    При нажатии иконки “Мечи” можно отменить приглашение друга
+  prerequisites:
+    Открыта страница пользователя проекта https://codebattle.hexlet.io/#lobby
+  test-data: |
+    no-date
+  steps:
+    - Создаем игру с другом
+    - Нажимаем иконку “Мечи” в правом верхнем углу
+    - Отменяем приглашение
+  expected-result: |
+    Приглашение отменено
