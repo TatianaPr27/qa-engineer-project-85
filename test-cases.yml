@@ -1,9 +1,9 @@
 - summary: |
-    Проверка входа пользователя с несуществующими email и паролем
+    Проверка авторизации незарегистрированного пользователя
   requirement: |
     При неправильном email или пароле пользователь должен получить сообщение об ошибке
   prerequisites:
-    Открыта страница входа (Sing in)
+    no-date
   test-data: |
     Email = hexlet@ghrt.com Пароль = 123jkl
   steps:
@@ -11,14 +11,14 @@
     - Вводим пароль
     - Нажимаем кнопку “Submit”
   expected-result: |
-    Пользователь должен получить сообщение об ошибке
+    Пользователь не авторизован и видит ошибку
 
 - summary: |
     Проверка входа пользователя с существующими email и паролем
   requirement: |
     При правильном email и пароле пользователь должен успешно войти в систему 
   prerequisites:
-    Открыта страница входа (Sing in)
+    no-date
   test-data: |
     Email = GregOtto@mail.ru Пароль = ghbdtn321
   steps:
@@ -28,101 +28,87 @@
   expected-result: |
     Пользователь должен войти в систему
 
-
 - summary: |
-    Проверка входа в систему с помощью аккаунта в Github
+    Проверка авторизации через GitHub
   requirement: |
     При нажатии кнопки “Sing in with Github” успешно входит в систему
   prerequisites:
-    Открыта страница входа (Sing in)
+    Произведен вход в свой аккаунт на GitHub
   test-data: |
     no-date
   steps:
     - Нажимаем кнопку “Sing in with Github”
   expected-result: |
-    Пользователь успешно входит в систему
+    Пользователь успешно авторизован через Github
 
 - summary: |
-    Проверка пробной версии без регистрации
+    Проверка создания игры без регистрации
   requirement: |
     При нажатии кнопки “TRY SIMPLE BATTLE” включается пробная версия приложения 
   prerequisites:
-    Открыта главная страница проекта https://codebattle.hexlet.io/
+    Пользователь не авторизован
   test-data: |
     no-date
   steps:
     - Нажимаем кнопку “TRY SIMPLE BATTLE”
   expected-result: |
-    Пользователь успешно переходит на пробную версию приложения
+    Игра без регистрации успешно создана
 
 - summary: |
-    Проверка возможности увидеть введённый пароль в поле ввода пароля
-  requirement: |
-    При создании игры появляется окно для создания игры
-  prerequisites:
-    Открыта страница проекта https://codebattle.hexlet.io/
-  test-data: |
-    no-date
-  steps:
-    - Открыть проект https://codebattle.hexlet.io/
-    - Нажать на кнопку Sing up
-    - Заполнить поле Password
-    - Найти и кликнуть на кнопку, которая должна показывать введенный пароль
-    - Кликнуть на любую область сайта
-  expected-result: |
-    Иконка просмотра пароля должна появляться при первом вводе пароля и оставаться доступной для повторного нажатия
-
-- summary: |
-    Проверка создания игры в проекте codebattle с ботом
+    Проверка создания игры с ботом
   requirement: |
     При нажатии кнопки “Create a game” создается игра
   prerequisites:
-    Открыта страница пользователя проекта https://codebattle.hexlet.io/#lobby
+    no-date
   test-data: |
     no-date
   steps:
     - Нажимаем кнопку “Create a game”
-    - Выбираем Level, Game type – With a bot, Time control, Choose task by name or tags
+    - Выбираем Game type – With a bot
     - Нажимаем кнопку “Create battle”
   expected-result: |
-    Открывается игра с ботом
+    Игра с ботом успешно создана
 
 - summary: |
-    Проверка создания игры в проекте codebattle с другом 
+    Проверка создания игры с другом 
   requirement: |
     При нажатии кнопки “Create a game” создается игра
   prerequisites:
-    Открыта страница пользователя проекта https://codebattle.hexlet.io/#lobby
+    Необходимо два пользователя
   test-data: |
-    no-date
+    Пользователь 1: Email = GregOtto@mail.ru Пароль = ghbdtn321, пользователь 2: Email = GHFDT@mail.ru Пароль = 321kjhl
   steps:
-    - Нажимаем кнопку “Create a game”
-    - Выбираем Level, Game type – With a friend, Time control, Choose opponent, Choose task by name or tags
-    - Нажимаем кнопку “Create battle”
+    - Пользователь 1: Нажимаем кнопку “Create a game”
+    - Выбираем Game type – With a friend
+    - Выбираем Choose opponent - Пользователя 2
+    - Нажимаем кнопку “Create invite”
+    - Пользователь 2: Нажимаем иконку "Мечи"
+    - Нажимаем кнопку "Accept"
   expected-result: |
-    Открывается игра с другом
+    Игра с другом успешно создана
 
 - summary: |
-    Проверка создания игры в проекте codebattle с другим пользователем
+    Проверка создания игры с другим пользователем
   requirement: |
     При нажатии кнопки “Create a game” создается игра
   prerequisites:
-    Открыта страница пользователя проекта https://codebattle.hexlet.io/#lobby
+    Необходимо два пользователя
   test-data: |
     no-date
   steps:
-    - Нажимаем кнопку “Create a game”
-    - Выбираем Level, Game type – With other user, Time control, Choose task by name or tags
+    - Пользователь 1: Нажимаем кнопку “Create a game”
+    - Выбираем Game type – With other user
     - Нажимаем кнопку “Create battle”
+    - Пользователь 2: Нажимаем кнопку "Fight"
   expected-result: |
-    Открывается игра с другим пользователем
+    Игра с другим пользователем успешно создана
 
 - summary: |
-    Проверка всплывающего окна для создания турнира в проекте codebattle 
+    Проверка всплывающего окна для создания турнира 
   requirement: |
     При нажатии кнопки “Tournaments” всплывает окно по созданию турнира
   prerequisites:
-    Открыта страница пользователя проекта https://codebattle.hexlet.io/#lobby
+    no-date
   test-data: |
     no-date
   steps:
@@ -131,11 +117,11 @@
     Открывается окно для создания турнира
 
 - summary: |
-    Проверка создания турнира в проекте codebattle
+    Проверка создания турнира
   requirement: |
     При нажатии иконки “Tournaments” создается турнир
   prerequisites:
-    Открыта страница пользователя проекта https://codebattle.hexlet.io/#lobby
+    no-date
   test-data: |
     no-date
   steps:
@@ -153,12 +139,15 @@
   requirement: |
     При нажатии иконки “Мечи” можно отменить приглашение друга
   prerequisites:
-    Открыта страница пользователя проекта https://codebattle.hexlet.io/#lobby
+    no-date
   test-data: |
     no-date
   steps:
-    - Создаем игру с другом
-    - Нажимаем иконку “Мечи” в правом верхнем углу
-    - Отменяем приглашение
+    - Пользователь 1: Нажимаем кнопку “Create a game”
+    - Выбираем Game type – With a friend
+    - Выбираем Choose opponent - Пользователя 2
+    - Нажимаем кнопку “Create invite”
+    - Пользователь 2: Нажимаем иконку “Мечи” 
+    - Нажимаем кнопку "Decline"
   expected-result: |
     Приглашение отменено
