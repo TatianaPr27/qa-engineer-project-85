@@ -77,13 +77,13 @@
   prerequisites:
     Необходимо два пользователя
   test-data: |
-    Пользователь 1: Email = GregOtto@mail.ru Пароль = ghbdtn321, пользователь 2: Email = GHFDT@mail.ru Пароль = 321kjhl
+    Пользователь 1 Email = GregOtto@mail.ru Пароль = ghbdtn321; пользователь 2 Email = GHFDT@mail.ru Пароль = 321kjhl
   steps:
-    - Пользователь 1: Нажимаем кнопку “Create a game”
+    - Пользователь 1, Нажимаем кнопку “Create a game”
     - Выбираем Game type – With a friend
     - Выбираем Choose opponent - Пользователя 2
     - Нажимаем кнопку “Create invite”
-    - Пользователь 2: Нажимаем иконку "Мечи"
+    - Пользователь 2, Нажимаем иконку "Мечи"
     - Нажимаем кнопку "Accept"
   expected-result: |
     Игра с другом успешно создана
@@ -97,10 +97,10 @@
   test-data: |
     no-date
   steps:
-    - Пользователь 1: Нажимаем кнопку “Create a game”
+    - Пользователь 1, Нажимаем кнопку “Create a game”
     - Выбираем Game type – With other user
     - Нажимаем кнопку “Create battle”
-    - Пользователь 2: Нажимаем кнопку "Fight"
+    - Пользователь 2, Нажимаем кнопку "Fight"
   expected-result: |
     Игра с другим пользователем успешно создана
 
@@ -140,15 +140,15 @@
   requirement: |
     При нажатии иконки “Мечи” можно отменить приглашение друга
   prerequisites:
-    no-date
+    Необходимо два пользователя
   test-data: |
     no-date
   steps:
-    - Пользователь 1: Нажимаем кнопку “Create a game”
+    - Пользователь 1, Нажимаем кнопку “Create a game”
     - Выбираем Game type – With a friend
     - Выбираем Choose opponent - Пользователя 2
     - Нажимаем кнопку “Create invite”
-    - Пользователь 2: Нажимаем иконку “Мечи” 
+    - Пользователь 2, Нажимаем иконку “Мечи” 
     - Нажимаем кнопку "Decline"
   expected-result: |
     Приглашение отменено
